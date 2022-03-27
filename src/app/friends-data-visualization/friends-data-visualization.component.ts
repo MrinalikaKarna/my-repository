@@ -78,7 +78,6 @@ export class FriendsDataVisualizationComponent implements AfterViewInit {
       .attr('class', 'link')
       .style('stroke', 'purple')
       .attr('d', (d: any) => {
-        console.log(d);
         return (
           'M' + d.y + ',' + d.x + 'L' + d.parent.y + ',' + d.parent.x + 'Z'
         );
