@@ -2,6 +2,14 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.5.
 
+1. Provide the details of the user in the input form(name, age, weight, friends-should be at least one and can be more)
+2. The realtionship between the user and friends appear in a tree hierarchy structure on the right side of view
+
+## Assumptions
+
+1. Each user should have at least one friend.
+2. Every user has unique set of friends
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.

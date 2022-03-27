@@ -1,0 +1,79 @@
+<div class="outerContainer">
+  <h1>Input Form</h1>
+  <div>
+    <form [formGroup]="form" (ngSubmit)="onDataSubmit()">
+      <div fxLayout="column">
+        <mat-form-field appearance="outline">
+          <mat-label>Name</mat-label>
+          <input
+            matInput
+            placeholder="Enter your Name"
+            formControlName="name"
+          />
+          <mat-error *ngIf="form.controls['name'].invalid">
+            <span>Please enter name</span>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Age</mat-label>
+          <input matInput placeholder="Enter your age" formControlName="age" />
+          <mat-error *ngIf="form.controls['age'].invalid">
+            <span>Please enter age</span>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Weight</mat-label>
+          <input
+            matInput
+            placeholder="Enter your weight"
+            formControlName="weight"
+          />
+          <mat-error *ngIf="form.controls['weight'].invalid">
+            <span>Please enter weight</span>
+          </mat-error>
+        </mat-form-field>
+        <ng-container formArrayName="friends">
+          <div>
+            <button
+              mat-stroked-button
+              type="button"
+              color="accent"
+              (click)="addNewFriend()"
+            >
+              Add Friend
+            </button>
+          </div>
+          <ng-container *ngFor="let friend of friends.controls; let i = index">
+            <div fxLayout="row" [formGroupName]="i">
+              <mat-form-field appearance="outline" fxFlex="95">
+                <mat-label>Friend</mat-label>
+                <input
+                  matInput
+                  placeholder="Enter friend's name"
+                  formControlName="name"
+                />
+              </mat-form-field>
+              <button
+                fxFlex="5"
+                mat-icon-button
+                color="accent"
+                *ngIf="i != 0"
+                (click)="removeFriend(i)"
+              >
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+          </ng-container>
+        </ng-container>
+      </div>
+      <button
+        [disabled]="form.invalid"
+        mat-raised-button
+        color="primary"
+        type="submit"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</div>
