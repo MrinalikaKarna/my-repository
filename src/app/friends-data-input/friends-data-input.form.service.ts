@@ -10,7 +10,7 @@ export class FriendsDataInputFormService {
   getForm() {
     const form = this.fb.group({
       name: ['', Validators.required],
-      friends: this.fb.array([this.newFriend()], [Validators.required]),
+      friends: this.fb.array([this.newFriend()], Validators.required),
       age: ['', Validators.required],
       weight: ['', Validators.required],
     });

@@ -10,14 +10,20 @@
             placeholder="Enter your Name"
             formControlName="name"
           />
-          <mat-error *ngIf="form.controls['name'].invalid">
+          <mat-error
+            *ngIf="
+              form.controls['name'].invalid && form.controls['name'].touched
+            "
+          >
             <span>Please enter name</span>
           </mat-error>
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Age</mat-label>
           <input matInput placeholder="Enter your age" formControlName="age" />
-          <mat-error *ngIf="form.controls['age'].invalid">
+          <mat-error
+            *ngIf="form.controls['age'].invalid && form.controls['age'].touched"
+          >
             <span>Please enter age</span>
           </mat-error>
         </mat-form-field>
@@ -28,7 +34,11 @@
             placeholder="Enter your weight"
             formControlName="weight"
           />
-          <mat-error *ngIf="form.controls['weight'].invalid">
+          <mat-error
+            *ngIf="
+              form.controls['weight'].invalid && form.controls['weight'].touched
+            "
+          >
             <span>Please enter weight</span>
           </mat-error>
         </mat-form-field>
@@ -63,6 +73,9 @@
                 <mat-icon>delete</mat-icon>
               </button>
             </div>
+            <!-- <mat-error *ngIf="form.get(friends.get(name)).invalid">
+              <span>Please enter weight</span>
+            </mat-error> -->
           </ng-container>
         </ng-container>
       </div>
